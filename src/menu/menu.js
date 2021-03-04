@@ -10,6 +10,8 @@ import historia4 from '../assets/portada-historia4.png'
 import historia5 from '../assets/portada-historia5.jpg'
 import historia6 from '../assets/portada-historia6.jpg'
 import historia7 from '../assets/portada-historia7.jpg'
+//imagen creditos
+import creditos from '../assets/creditos-concierto.jpg'
 
 
 
@@ -20,7 +22,7 @@ imagen1.src = portada1;
 var imagen1 = document.getElementById("portada3");
 imagen1.src = portada3;
 
-
+//"imagen-creditos
 //menu-historia1
 var menuHistoria1 = document.getElementById("menu-historia1");
 menuHistoria1.src = historia1;
@@ -42,3 +44,7 @@ menuHistoria6.src = historia6;
 
 var menuHistoria7 = document.getElementById("menu-historia7");
 menuHistoria7.src = historia7;
+
+
+var imagenCreditos = document.getElementById("imagen-creditos");
+imagenCreditos.src = creditos;
