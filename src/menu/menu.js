@@ -30,3 +30,15 @@ menuHistoria2.src = historia2;
 
 var menuHistoria3 = document.getElementById("menu-historia3");
 menuHistoria3.src = historia3;
+
+var menuHistoria4 = document.getElementById("menu-historia4");
+menuHistoria4.src = historia4;
+
+var menuHistoria5 = document.getElementById("menu-historia5");
+menuHistoria5.src = historia5;
+
+var menuHistoria6 = document.getElementById("menu-historia6");
+menuHistoria6.src = historia6;
+
+var menuHistoria7 = document.getElementById("menu-historia7");
+menuHistoria7.src = historia7;
