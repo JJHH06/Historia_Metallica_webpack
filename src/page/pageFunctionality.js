@@ -28,8 +28,12 @@ import historia72 from '../assets/historia/historia72.jpeg';
 
 //paso de parametros
 var eleccionPagina = 0;
-eleccionPagina = sessionStorage.getItem("numeroPaginaHistoria");
-alert("Estamos en la pagina: "+ eleccionPagina);
+var retornoDeParametro = sessionStorage.getItem("numeroPaginaHistoria");
+//esto es en caso de que a alguien se le ocurra la idea de abrir primero una pagina antes de menu
+if( retornoDeParametro != null){
+    eleccionPagina = retornoDeParametro;
+};
+
 
 var titulosHistoria = [
     "\nFormación de la banda",
@@ -203,4 +207,58 @@ if(eleccionPagina<5){
     }
 };
 
+//creacion de botones
+/* <a class="btn btn-primary col" id="boton-link2" href="page.html">Ir a parte 2 de Historia &raquo;</a>
+      <div class ="col-4"></div>
+      <a class="btn btn-primary  col" id="boton-link2" href="page.html">&laquo; Ir a parte 2 de Historia</a> */
+
+
+function crearBotonNavegarLeft(no_historia){
+    var botonIr = document.createElement("a");
+    botonIr.classList.add("btn", "btn-primary", "col");
+    botonIr.href = "page.html";
+    const paginaIndice = no_historia+1;
+    botonIr.innerHTML = "&laquo;"+" ir a parte "+paginaIndice+" de la Historia";
+    botonIr.onclick =function(){sessionStorage.setItem("numeroPaginaHistoria", no_historia)};
+    document.getElementById("contenedor-botones").appendChild(botonIr);
+}
+
+function crearBotonNavegarRight(no_historia){
+    var botonIr = document.createElement("a");
+    botonIr.classList.add("btn", "btn-primary", "col");
+    botonIr.href = "page.html";
+    const paginaIndice = no_historia+1;
+    botonIr.innerHTML = " ir a parte "+paginaIndice+" de la Historia "+"&raquo;";
+    botonIr.onclick =function(){sessionStorage.setItem("numeroPaginaHistoria", no_historia)};
+    document.getElementById("contenedor-botones").appendChild(botonIr);
+}
+
+function crearEspaciadoGrande(){
+    var espaciadorGrande = document.createElement("div");
+    espaciadorGrande.classList = "col-8";
+    document.getElementById("contenedor-botones").appendChild(espaciadorGrande);
+};
+
+function crearEspaciadoMediano(){
+    var espaciadorMediano = document.createElement("div");
+    espaciadorMediano.classList = "col-4";
+    document.getElementById("contenedor-botones").appendChild(espaciadorMediano);
+};
+
+
+const pagina_futura = 1+ parseInt(eleccionPagina);
+const pagina_pasada = parseInt(eleccionPagina) -1;
+if(eleccionPagina ==0){
+    crearEspaciadoGrande();
+    crearBotonNavegarRight(1);
+}
+else if(eleccionPagina == 6){
+    crearBotonNavegarLeft(6);
+    crearEspaciadoGrande();
+}
+else{
+    crearBotonNavegarLeft(pagina_pasada);
+    crearEspaciadoMediano()
+    crearBotonNavegarRight(pagina_futura);
+}
 
