@@ -53,7 +53,7 @@ imagenCreditos.src = creditos;
 function parametroHistoria(no_pagina){
     sessionStorage.setItem("numeroPaginaHistoria", no_pagina);
 };
-
+//se colocó el parametro de la pagina
 document.getElementById("boton-link1").onclick =function(){parametroHistoria(0)};
 document.getElementById("boton-link2").onclick =function(){parametroHistoria(1)};
 document.getElementById("boton-link3").onclick =function(){parametroHistoria(2)};

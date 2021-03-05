@@ -27,4 +27,18 @@ import historia72 from '../assets/historia/historia72.jpeg';
 var eleccionPagina = sessionStorage.getItem("numeroPaginaHistoria");
 alert("Estamos en la pagina: "+eleccionPagina);
 
+var imagenesHistoria=[
+    [historia11,historia12,historia13],
+    [historia21,historia22,historia23],
+    [historia31,historia32,historia33],
+    [historia41,historia42,historia43],
+    [historia51,historia52,historia53],
+    [historia61,historia62],
+    [historia71,historia72]
+];
+
+document.getElementById("imagen-historia1").src = imagenesHistoria[eleccionPagina][0]
+//texto-historia2
+//imagen-historia2
+
 
