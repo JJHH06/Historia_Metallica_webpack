@@ -54,18 +54,10 @@ function parametroHistoria(no_pagina){
     sessionStorage.setItem("numeroPaginaHistoria", no_pagina);
 };
 
-var botonLink1 = document.getElementById("boton-link1");
-var botonLink2 = document.getElementById("boton-link2");
-var botonLink3 = document.getElementById("boton-link3");
-var botonLink4 = document.getElementById("boton-link4");
-var botonLink5 = document.getElementById("boton-link5");
-var botonLink6 = document.getElementById("boton-link6");
-var botonLink7 = document.getElementById("boton-link7");
-
-botonLink7.onclick = parametroHistoria(6);
-botonLink1.onclick = parametroHistoria(0);
-botonLink2.onclick = parametroHistoria(1);
-botonLink3.onclick = parametroHistoria(2);
-botonLink4.onclick = parametroHistoria(3);
-botonLink5.onclick = parametroHistoria(4);
-botonLink6.onclick = parametroHistoria(5);
+document.getElementById("boton-link1").onclick =function(){parametroHistoria(0)};
+document.getElementById("boton-link2").onclick =function(){parametroHistoria(1)};
+document.getElementById("boton-link3").onclick =function(){parametroHistoria(2)};
+document.getElementById("boton-link4").onclick =function(){parametroHistoria(3)};
+document.getElementById("boton-link5").onclick =function(){parametroHistoria(4)};
+document.getElementById("boton-link6").onclick =function(){parametroHistoria(5)};
+document.getElementById("boton-link7").onclick =function(){parametroHistoria(6)};
