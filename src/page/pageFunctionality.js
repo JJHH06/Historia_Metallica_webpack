@@ -31,6 +31,16 @@ var eleccionPagina = 0;
 eleccionPagina = sessionStorage.getItem("numeroPaginaHistoria");
 alert("Estamos en la pagina: "+ eleccionPagina);
 
+var titulosHistoria = [
+    "\nFormación de la banda",
+    "\nCliff Burton, el bajista excepcional, y la expulsión de Dave Mustaine",
+    "\nPrimeros álbumes y ¿“Alcohólica”?",
+    "\nAccidente en Suecia y la muerte de Cliff Burton",
+    "\nLa mala aceptación de Jason Newsted y creación de uno de los mejores álbumes de la historia",
+    "\nCaso Napster y la banda al borde del colapso",
+    "\nUn Nuevo Bajista y la actualidad",
+];
+document.getElementById("titulo-historia").innerText = titulosHistoria[eleccionPagina];
 
 var imagenesHistoria=[
     [historia11,historia12,historia13],
@@ -41,7 +51,12 @@ var imagenesHistoria=[
     [historia61,historia62],
     [historia71,historia72]
 ];
+//primeras 2 imagenes
+document.getElementById("imagen-historia1").src = imagenesHistoria[eleccionPagina][0];
+document.getElementById("imagen-historia2").src = imagenesHistoria[eleccionPagina][1];
 
+
+//parrafos
 var parrafosHistorias = [
     //historia1
     [
@@ -88,24 +103,104 @@ var parrafosHistorias = [
     ]
 ];
 
-//primeras 2 imagenes
-document.getElementById("imagen-historia1").src = imagenesHistoria[eleccionPagina][0];
-document.getElementById("imagen-historia2").src = imagenesHistoria[eleccionPagina][1];
-//texto-historia2
-//imagen-historia2
+
 //primeros 2 fragmentos
 document.getElementById("texto-historia1").innerText = parrafosHistorias[eleccionPagina][0];
 document.getElementById("texto-historia2").innerText = parrafosHistorias[eleccionPagina][1];
 
 
-//funcion que crea los contenedores de las historias
+//funcion que crea los contenedores de las historias a la derecha
 function rightFeaturette(parrafo_historia, imagen_historia){
+    var rowFeaturette = document.createElement("div");
+    rowFeaturette.classList = "row featurette";
 
+    var textContainter = document.createElement("div");
+    textContainter.classList = "col-md-7";
+
+    rowFeaturette.appendChild(textContainter);
+
+    var featuretteParagraph  = document.createElement("p");
+    featuretteParagraph.classList = "lead";
+    featuretteParagraph.innerText = parrafo_historia;
+
+    textContainter.appendChild(featuretteParagraph);
+
+    var imageContainter = document.createElement("div");
+    imageContainter.classList = "col-md-5";
+
+    rowFeaturette.appendChild(imageContainter);
+
+    var featuretteImage = document.createElement("img");
+    featuretteImage.classList.add("bd-placeholder-img", "bd-placeholder-img-lg", "featurette-image", "img-fluid", "mx-auto");
+    featuretteImage.width = "500";
+    featuretteImage.height = "500";
+    featuretteImage.role = "img";
+    featuretteImage.preserveAspectRatio = "xMidYMid slice";
+    featuretteImage.focusable = "false";
+    featuretteImage.src = imagen_historia;
+    featuretteImage.innerHTML = "<rect width=\"100%\" height=\"100%\" fill=\"#eee\"/>";
+
+    imageContainter.appendChild(featuretteImage);
+
+    var divisor = document.createElement("hr");
+    divisor.classList = "featurette-divider";
+
+    var contenedorFeaturettes = document.getElementById("contenedor-featurettes");
+
+    contenedorFeaturettes.appendChild(rowFeaturette);
+    contenedorFeaturettes.appendChild(divisor);
+};
+
+//funcion que crea los contenedores de las historias con imagen a la izquierda
+function leftFeaturette(parrafo_historia, imagen_historia){
+    var rowFeaturette = document.createElement("div");
+    rowFeaturette.classList = "row featurette";
+
+    var textContainter = document.createElement("div");
+    textContainter.classList.add("col-md-7", "order-md-2");
+    
+
+    rowFeaturette.appendChild(textContainter);
+
+    var featuretteParagraph  = document.createElement("p");
+    featuretteParagraph.classList = "lead";
+    featuretteParagraph.innerText = parrafo_historia;
+
+    textContainter.appendChild(featuretteParagraph);
+
+    var imageContainter = document.createElement("div");
+    imageContainter.classList = "col-md-5";
+
+    rowFeaturette.appendChild(imageContainter);
+
+    var featuretteImage = document.createElement("img");
+    featuretteImage.classList.add("bd-placeholder-img", "bd-placeholder-img-lg", "featurette-image", "img-fluid", "mx-auto");
+    featuretteImage.width = "500";
+    featuretteImage.height = "500";
+    featuretteImage.role = "img";
+    featuretteImage.preserveAspectRatio = "xMidYMid slice";
+    featuretteImage.focusable = "false";
+    featuretteImage.src = imagen_historia;
+    featuretteImage.innerHTML = "<rect width=\"100%\" height=\"100%\" fill=\"#eee\"/>";
+
+    imageContainter.appendChild(featuretteImage);
+
+    var divisor = document.createElement("hr");
+    divisor.classList = "featurette-divider";
+
+    var contenedorFeaturettes = document.getElementById("contenedor-featurettes");
+
+    contenedorFeaturettes.appendChild(rowFeaturette);
+    contenedorFeaturettes.appendChild(divisor);
 };
 
 //si la pagina es menor
 if(eleccionPagina<5){
-
+    rightFeaturette(parrafosHistorias[eleccionPagina][2],imagenesHistoria[eleccionPagina][2]);
+    if(eleccionPagina == 4){
+        leftFeaturette(parrafosHistorias[eleccionPagina][3],imagenesHistoria[eleccionPagina][3]);
+        rightFeaturette(parrafosHistorias[eleccionPagina][4],imagenesHistoria[eleccionPagina][4]);
+    }
 };
 
 
