@@ -8,6 +8,6 @@ const presets = [
     },
 ],
 ];
-const plugins = [];
+const plugins = ["@babel/plugin-transform-arrow-functions", "@babel/plugin-transform-literals","@babel/plugin-transform-parameters"];
 
 module.exports = {presets,plugins};

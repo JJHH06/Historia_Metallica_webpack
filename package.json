@@ -21,10 +21,14 @@
   "dependencies": {
     "@babel/cli": "^7.13.0",
     "@babel/core": "^7.13.8",
+    "@babel/plugin-transform-arrow-functions": "^7.13.0",
+    "@babel/plugin-transform-literals": "^7.12.13",
+    "@babel/plugin-transform-parameters": "^7.13.0",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.13.9",
+    "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
-    "corejs": "^1.0.0",
+    "core-js": "^3.9.1",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
   },
